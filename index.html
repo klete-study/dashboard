@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h3>Dashboard - buttons</h3>
+    </div>
+  </header>
+  <section>
+    <div id="nav">
+      <ul>
+        <li>
+          <p><a href="index.html">buttons</a></p>
+        </li>
+        <li>
+          <p><a href="dropdown.html">dropdowns</a></p>
+        </li>
+      </ul>
+    </div>
+
+    <div id="container">
+      <div id="buttonContainer" class="buttonDisplay">
+        <button id="button" class="button default border-white normal-padding normal-fontSize">
+          <p>
+            This is a button
+          </p>
+        </button>
+      </div>
+    </div>
+
+    <div id="menu">
+      <form action="">
+        <div>
+          <label for="colorSelectBox">Color</label><br>
+          <select id="colorSelectBox" name="colorSelectBox">
+            <option value="default">default</option>
+            <option value="primary">Primary</option>
+            <option value="secondary">Secondary</option>
+            <option value="success">Success</option>
+            <option value="info">Info</option>
+            <option value="warning">Warning</option>
+            <option value="danger">Danger</option>
+            <option value="alt">Alt</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      </form>
+
+      <form action="">
+        <h3>Change Border And Font Color</h3>
+        <input type="checkbox" id="borderColor" name="borderColor">
+        <label for="borderColor"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Border Line</h3>
+        <input type="checkbox" id="borderLine" name="borderLine">
+        <label for="borderLine"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Disabled State</h3>
+        <input type="checkbox" id="disabled" name="disabled">
+        <label for="disabled"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Active State</h3>
+        <input type="checkbox" id="active" name="active">
+        <label for="active"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Block</h3>
+        <input type="checkbox" id="block" name="block">
+        <label for="block"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Level</h3>
+        <div class="selectContainer">
+          <input type="radio" id="levelLarge" name="level" value="large"
+          onclick="changeLevel(event)">
+          <label for="levelLarge">Large</label>
+          <input type="radio" id="levelNormal" name="level" value="normal"
+          onclick="changeLevel(event)">
+          <label for="levelNormal">Normal</label>
+          <input type="radio" id="levelSmall" name="level" value="small"
+          onclick="changeLevel(event)">
+          <label for="levelSmall">Small</label>
+        </div><br>
+        <span>Level : <p class="levelText">Normal</p></span>
+      </form>
+
+      <form action="">
+        <h3>Wider</h3>
+        <div class="selectContainer">
+          <input type="radio" id="widerLarge" name="wider" value="large"
+          onclick="changeWider(event)">
+          <label for="widerLarge">Large</label>
+          <input type="radio" id="widerNormal" name="wider" value="normal"
+          onclick="changeWider(event)" >
+          <label for="widerNormal">Normal</label>
+          <input type="radio" id="widerSmall" name="wider" value="small"
+          onclick="changeWider(event)">
+          <label for="widerSmall">Small</label>
+        </div><br>
+        <span>Wider : <p class="widerText">Normal</p></span>
+      </form>
+
+    </div> 
+  </section>
+</body>
+<script src="js/index.js"></script>
+</html>
