@@ -7,10 +7,16 @@
   const colorUpdate = (value) => {
     for (let index = 0; index < select.length; index++) {
       if (select[index].value == value) {
-        button.classList.add(value);
+        if (active.checked == true) {
+          button.classList.add(value+'-hover');  
+          button.classList.remove(select[index].value);
+        } else {
+          button.classList.add(value);
+          button.classList.remove(select[index].value+'-hover');
+        }
         dropdownMenu.classList.add(value);
-        button.classList.remove(value+'-hover');
       } else {
+        button.classList.remove(select[index].value+'-hover');
         button.classList.remove(select[index].value);
         dropdownMenu.classList.remove(select[index].value);
       }
@@ -66,6 +72,7 @@
   select.addEventListener('change', (event) => {
     if (borderFontColor.checked == false) {
       colorUpdate (event.target.value);
+      
     } else {
       changeBorderFontColor(select.value, borderFontColor.checked);
     }
@@ -194,9 +201,10 @@
 
 (function () {
   const block = document.getElementById('block'); 
+  
   const text = document.getElementsByClassName('tag');
   const buttonContainer = document.getElementById('buttonContainer');
-
+  
   block.addEventListener('change', (event) => {
     if (event.target.checked == true) {
       buttonContainer.classList.add('block');
@@ -211,14 +219,25 @@
 })();
 
 const levelName = document.getElementsByName('level');
+let pos = 'center';
+
+const widthArray = [
+  260,
+  220,
+  180
+];
 
 function changeLevel (event) {
   const value = event.target.value;
   const text = document.getElementsByClassName('text')[0];
+  const width = document.querySelector('body');
+  let buttonWidth = 0;
   
   for (let index = 0; index < levelName.length; index++) {
     if (widerName[index].value == value) {
       button.classList.add(value + '-padding');
+      buttonWidth = document.querySelector('#button').offsetWidth
+      width.style.setProperty('--pos', changeDropdownPos(pos, buttonWidth)+'px');
       text.innerText = value;
     } else {
       button.classList.remove(widerName[index].value + '-padding');
@@ -231,45 +250,86 @@ const widerName = document.getElementsByName('wider');
 function changeWider (event) {
   const value = event.target.value;
   const text = document.getElementsByClassName('text')[1];
-  
+  const width = document.querySelector('body');
+  let buttonWidth = document.querySelector('#button').offsetWidth;
+
   for (let index = 0; index < widerName.length; index++) {
     if (widerName[index].value == value) {
       button.classList.add(value + '-fontSize');
+      buttonWidth = document.querySelector('#button').offsetWidth;
+
+      width.style.setProperty('--pos', changeDropdownPos(pos, buttonWidth)+'px');
       text.innerText = value;
     } else {
       button.classList.remove(widerName[index].value + '-fontSize');
     }
+    
   }
 };
 
 const dropdownName = document.getElementsByName('dropdown');
 const dropdownMenu = document.getElementById('dropdownMenu');
 
+const widthValue = (value) => {
+  const center = document.querySelector('#container').offsetWidth/2;
+  return (center - (value/2))
+}
+
 function changeDropdownWider (event) {
   const value = event.target.value;
   const text = document.getElementsByClassName('text')[2];
-  
+  const width = document.querySelector('body');
   for (let index = 0; index < dropdownName.length; index++) {
     if (dropdownName[index].value == value) {
-      dropdownMenu.classList.add(value + '-size');
+      width.style.setProperty('--width', widthArray[index].valueOf()+'px');
+      width.style.setProperty('--left', widthValue(widthArray[index].valueOf())+"px");
       text.innerText = value;
-    } else {
-      dropdownMenu.classList.remove(dropdownName[index].value + '-size');
-    }
+    } 
   }
 };
 
 const dropdownPos = document.getElementsByName('dropdownPos');
+
+const changeDropdownPos = (pos, value) => {
+  const center = document.querySelector('#container').offsetWidth/2
+  const dropdown = document.querySelector('#dropdownMenu').offsetWidth;
+  if (pos == 'right' || pos == 'left') {
+    return (center + value/2);
+  } else {
+    return (center - dropdown/2)
+  }
+};
+
 function changePosition (event) {
   const value = event.target.value;
   const text = document.getElementsByClassName('text')[3];
+  const width = document.querySelector('body');
+  const buttonWidth = document.querySelector('#button').offsetWidth
   
   for (let index = 0; index < dropdownPos.length; index++) {
     if (dropdownPos[index].value == value) {
       dropdownMenu.classList.add(value);
+      pos = value;
+      width.style.setProperty('--pos', changeDropdownPos(pos, buttonWidth)+'px');
       text.innerText = value;
     } else {
       dropdownMenu.classList.remove(dropdownPos[index].value);
     }
   }
 };
+
+(function () {
+  const value = document.querySelector('body');
+  const buttonWidth = document.querySelector('#button').offsetWidth
+
+  window.onload = function(event) {
+    const posLeft = widthValue ();
+    value.style.setProperty('--left', posLeft+"px");
+  };
+  
+  window.onresize = function(event) {  
+    const posLeft = widthValue (document.querySelector('#dropdownMenu').offsetWidth);
+    value.style.setProperty('--pos', changeDropdownPos(pos, buttonWidth)+'px');
+    value.style.setProperty('--left', posLeft+"px");
+  };
+})();
