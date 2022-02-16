@@ -127,12 +127,6 @@
       </form>
 
       <form action="">
-        <h3>Active State</h3>
-        <input type="checkbox" id="active" name="active">
-        <label for="active"><p class="tag">No</p></label>
-      </form>
-
-      <form action="">
         <h3>Block</h3>
         <input type="checkbox" id="block" name="block">
         <label for="block"><p class="tag">No</p></label>
@@ -142,13 +136,13 @@
         <h3>Level</h3>
         <div class="selectContainer">
           <input type="radio" id="levelLarge" name="level" value="large"
-          onclick="changeLevel(event)">
+          onclick="changeLevelAndWider(event)">
           <label for="levelLarge">Large</label>
           <input type="radio" id="levelNormal" name="level" value="normal"
-          onclick="changeLevel(event)">
+          onclick="changeLevelAndWider(event)">
           <label for="levelNormal">Normal</label>
           <input type="radio" id="levelSmall" name="level" value="small"
-          onclick="changeLevel(event)">
+          onclick="changeLevelAndWider(event)">
           <label for="levelSmall">Small</label>
         </div><br>
         <span>Level : <p class="text">normal</p></span>
@@ -158,13 +152,13 @@
         <h3>Wider</h3>
         <div class="selectContainer">
           <input type="radio" id="widerLarge" name="wider" value="large"
-          onclick="changeWider(event)">
+          onclick="changeLevelAndWider(event)">
           <label for="widerLarge">Large</label>
           <input type="radio" id="widerNormal" name="wider" value="normal"
-          onclick="changeWider(event)" >
+          onclick="changeLevelAndWider(event)" >
           <label for="widerNormal">Normal</label>
           <input type="radio" id="widerSmall" name="wider" value="small"
-          onclick="changeWider(event)">
+          onclick="changeLevelAndWider(event)">
           <label for="widerSmall">Small</label>
         </div><br>
         <span>Wider : <p class="text">normal</p></span>
@@ -183,7 +177,7 @@
           onclick="changeDropdownWider(event)">
           <label for="dropdownSmall">Small</label>
         </div><br>
-        <span>dropdown : <p class="text">small</p></span>
+        <span>dropdown : <p class="text">small(default)</p></span>
       </form>
 
       <form action="">

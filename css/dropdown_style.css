@@ -1,24 +1,22 @@
 body {
   --width : 180px;
   --left : 180px;
-  --pos : 180px;
 }
 
 #dropdownMenu {
   border: 1px solid gray;
   position: absolute;
   text-align: left;
-  transition: 1s;
 }
 
 .right {
   top : 0px;
-  left : var(--pos);
+  left : var(--left);
 }
 
 .left {
   top : 0px;
-  right : var(--pos);
+  right : var(--left);
 }
 
 .center {
@@ -26,7 +24,7 @@ body {
 }
 
 .displayNone {
-  display: block;
+  display: none;
 }
 
 #dropdownMenu p {
