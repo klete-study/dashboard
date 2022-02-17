@@ -21,11 +21,6 @@ a {
   text-decoration: none;
 }
 
-li > p, 
-li > p:hover {
-  transition: 1s;
-}
-
 li > p:hover {
   font-size : 1.25rem;
   text-decoration: underline;
@@ -37,7 +32,7 @@ input {
 
 #nav {
   width: 15%;
-  margin-right : 20px;
+  padding-right : 20px;
 }
 
 #menu {
@@ -45,7 +40,7 @@ input {
   overflow: scroll; 
   overflow-x:unset;
   height: 850px;
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 #container {
@@ -53,10 +48,10 @@ input {
   padding: 0 10px 0 10px; 
   text-align: center;
 }
+
 .button {
   padding: 10px; 
   border-radius: 10px; 
-  transition: 1s;
   width: 100%;
   border: 1px solid white;
 }
@@ -84,6 +79,8 @@ input {
   background-color: #dddddd;
 }
 
+li > p, 
+li > p:hover, 
 .tag, .tag:hover, 
 .selectContainer, 
 .selectContainer > label:hover
@@ -113,8 +110,7 @@ input {
   display: block;
 }
 
-.widerText, 
-.levelText {
+.text {
   display: inline;
 }
 
@@ -239,7 +235,7 @@ input {
 
 .warning-change {
   color: #f7b924;
-  background-color: black;
+  background-color: white;
   border-color:#f7b924;
 }
 
@@ -251,7 +247,7 @@ input {
 
 .warning-hover-change {
   color: #e0a008;
-  background-color: black;
+  background-color: white;
   border-color: #e0a008;
 }
 
@@ -310,9 +306,9 @@ input {
 }
 
 .light-change {
-  color: #eee;
-  background-color: black;
-  border-color:#eee;
+  color: rgb(197, 197, 197);
+  background-color: white;
+  border-color: rgb(197, 197, 197);
 }
 
 .light-hover {
@@ -322,9 +318,9 @@ input {
 }
 
 .light-hover-change {
-  color: #d5d5d5;
-  background-color: black;
-  border-color: #d5d5d5;
+  color: #757575;
+  background-color: white;
+  border-color: #757575;
 }
 
 .dark {
@@ -345,7 +341,7 @@ input {
   border-color: #1d2124;
 }
 
-.alt-hover-change {
+.dark-hover-change {
   color: #1d2124;
   background-color: white;
   border-color: #1d2124;
