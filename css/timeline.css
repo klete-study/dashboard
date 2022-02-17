@@ -1,0 +1,63 @@
+
+
+input {
+  display: block;
+  padding: 5px 10px;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+#timelineContainer {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#timelineContainer > div {
+  margin: 0px 10px;
+} 
+
+#timelineContainer > div:nth-child(1),
+#timelineContainer > div:nth-child(2){
+  text-align: center;
+  margin-top: 5px;
+} 
+
+#timelineContainer > div > span {
+  margin: 0;
+} 
+
+#textContainer {
+  word-break: break-all;
+  text-align: left;
+}
+
+#save,
+#show,
+#reset {
+  display: none;
+}
+
+.color {
+  display: inline-block;
+  width : 10px;
+  height : 10px;
+  border-radius: 10000px;
+  padding: 0;
+  border : 4px solid green;
+}
+
+.time,
+.color {
+  margin-right: 10px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.time {
+  color: rgb(175, 175, 175);
+}

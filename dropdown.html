@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Dashboard</title>
+  <link rel="stylesheet" href="css/dropdown_style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h3>Dashboard - dropdown</h3>
+    </div>
+  </header>
+  <section>
+    <div id="nav">
+      <ul>
+        <li>
+          <p><a href="button.html">buttons</a></p>
+        </li>
+        <li>
+          <p><a href="dropdown.html">dropdowns</a></p>
+        </li>
+        <li>
+          <p><a href="index.html">timeline</a></p>
+        </li>
+      </ul>
+    </div>
+
+    <div id="container">
+      <div id="buttonContainer" class="buttonDisplay">
+        <button id="button" class="button default border-white normal-padding normal-fontSize">
+          <p>
+            This is a dashboard ▼
+          </p>
+        </button>
+        <div id="dropdownMenu" class="displayNone size center">
+          <div id="dropdownSettingMenu" class="default">
+            <div>
+              <h3>Settings</h3>
+              <p>Manage all of your options</p>
+            </div>
+          </div>
+          <div id="activityContainer">
+            <div class="dropdownTitle">
+              <p>ACTIVITY</p>
+            </div>
+            <div class="flex">
+              <div class="dropdownText">
+                <p>Chat</p>
+              </div>
+              <div id="chatCount">
+                <p>8</p>
+              </div>
+            </div>
+            <div class="dropdownText">
+              <p>Recover Password</p>
+            </div>
+          </div>
+          <div id="accountContainer">
+            <div class="dropdownTitle">
+              <p>MY ACCOUNT</p>
+            </div>
+            <div class="flex">
+              <div class="dropdownText">
+                <p>Settings</p>
+              </div>
+              <div id="settingText">
+                <p>NEW</p>
+              </div>
+            </div>
+            <div class="flex">
+              <div>
+                <p class="dropdownText">Messages</p>
+              </div>
+              <div id="messageCount">
+                <p>512</p>
+              </div>
+            </div>
+            <div>
+              <p class="dropdownText">Logs</p>
+            </div>
+          </div>
+          <div id="cancelContainer">
+            <div id="cancelText">
+              <p>Cancel</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu">
+      <form action="">
+        <div>
+          <label for="colorSelectBox">Color</label><br>
+          <select id="colorSelectBox" name="colorSelectBox">
+            <option value="default">default</option>
+            <option value="primary">Primary</option>
+            <option value="secondary">Secondary</option>
+            <option value="success">Success</option>
+            <option value="info">Info</option>
+            <option value="warning">Warning</option>
+            <option value="danger">Danger</option>
+            <option value="alt">Alt</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      </form>
+
+      <form action="">
+        <h3>Change Border And Font Color</h3>
+        <input type="checkbox" id="borderColor" name="borderColor">
+        <label for="borderColor"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Border Line</h3>
+        <input type="checkbox" id="borderLine" name="borderLine">
+        <label for="borderLine"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Disabled State</h3>
+        <input type="checkbox" id="disabled" name="disabled">
+        <label for="disabled"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Block</h3>
+        <input type="checkbox" id="block" name="block">
+        <label for="block"><p class="tag">No</p></label>
+      </form>
+
+      <form action="">
+        <h3>Level</h3>
+        <div class="selectContainer">
+          <input type="radio" id="levelLarge" name="level" value="large"
+          onclick="changeLevelAndWider(event)">
+          <label for="levelLarge">Large</label>
+          <input type="radio" id="levelNormal" name="level" value="normal"
+          onclick="changeLevelAndWider(event)">
+          <label for="levelNormal">Normal</label>
+          <input type="radio" id="levelSmall" name="level" value="small"
+          onclick="changeLevelAndWider(event)">
+          <label for="levelSmall">Small</label>
+        </div><br>
+        <span>Level : <p class="text">normal</p></span>
+      </form>
+
+      <form action="">
+        <h3>Wider</h3>
+        <div class="selectContainer">
+          <input type="radio" id="widerLarge" name="wider" value="large"
+          onclick="changeLevelAndWider(event)">
+          <label for="widerLarge">Large</label>
+          <input type="radio" id="widerNormal" name="wider" value="normal"
+          onclick="changeLevelAndWider(event)" >
+          <label for="widerNormal">Normal</label>
+          <input type="radio" id="widerSmall" name="wider" value="small"
+          onclick="changeLevelAndWider(event)">
+          <label for="widerSmall">Small</label>
+        </div><br>
+        <span>Wider : <p class="text">normal</p></span>
+      </form>
+
+      <form action="">
+        <h3>dropdown Wider</h3>
+        <div class="selectContainer">
+          <input type="radio" id="dropdownLarge" name="dropdown" value="large"
+          onclick="changeDropdownWider(event)">
+          <label for="dropdownLarge">Large</label>
+          <input type="radio" id="dropdownNormal" name="dropdown" value="normal"
+          onclick="changeDropdownWider(event)" >
+          <label for="dropdownNormal">Normal</label>
+          <input type="radio" id="dropdownSmall" name="dropdown" value="small"
+          onclick="changeDropdownWider(event)">
+          <label for="dropdownSmall">Small</label>
+        </div><br>
+        <span>dropdown : <p class="text">small(default)</p></span>
+      </form>
+
+      <form action="">
+        <h3>dropdown Position</h3>
+        <div class="selectContainer">
+          <input type="radio" id="posLeft" name="dropdownPos" value="left"
+          onclick="changePosition(event)">
+          <label for="posLeft">Left</label>
+          <input type="radio" id="posCenter" name="dropdownPos" value="center"
+          onclick="changePosition(event)" >
+          <label for="posCenter">Center</label>
+          <input type="radio" id="posRight" name="dropdownPos" value="right"
+          onclick="changePosition(event)">
+          <label for="posRight">Right</label>
+        </div><br>
+        <span>position : <p class="text">center</p></span>
+      </form>
+
+    </div>
+    
+  </section>
+</body>
+<script src="js/dropdown.js"></script>
+</html>

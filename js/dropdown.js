@@ -9,15 +9,15 @@
     for (let index = 0; index < select.length; index++) {
       if (select[index].value == value) {
         if (borderFontColor.checked == true) {
-          button.classList.add(value+'-change');
-          button.classList.remove(value+'-hover-change');
+          button.classList.add(`${value}-change`);
+          button.classList.remove(`${value}-hover-change`);
         } else {
           button.classList.add(value);
-          button.classList.remove(select[index].value+'-hover');
+          button.classList.remove(`${select[index].value}-hover`);
         }
         dropdownMenu.classList.add(value);
       } else {
-        button.classList.remove(select[index].value+'-hover');
+        button.classList.remove(`${select[index].value}-hover`);
         button.classList.remove(select[index].value);
         dropdownMenu.classList.remove(select[index].value);
       }
@@ -31,14 +31,14 @@
           if (value == 'default') {
             break;
           }
-          button.classList.add(value+'-hover-change');
-          button.classList.remove(value+'-change');
+          button.classList.add(`${value}-hover-change`);
+          button.classList.remove(`${value}-change`);
         } else {
-          button.classList.add(value+'-hover');
+          button.classList.add(`${value}-hover`);
         }
         button.classList.remove(value);
       } else {
-        button.classList.remove(select[index].value+'-hover');
+        button.classList.remove(`${select[index].value}-hover`);
       }
     }
   };
@@ -47,19 +47,19 @@
     if (check == true) {  
       for (let index = 0; index < select.length; index++) {
         if (select[index].value == value) {
-          button.classList.add(value + '-change');
+          button.classList.add(`${value}-change`);
           button.classList.remove(value);
           text[0].innerText = 'Yes';
           text[0].style.backgroundColor = '#dddddd';
           dropdownMenu.classList.add(value);
         } else {
-          button.classList.remove(select[index].value+'-change');
+          button.classList.remove(`${select[index].value}-change`);
           dropdownMenu.classList.remove(select[index].value);
         } 
       }
     } else {
       button.classList.add(value);
-      button.classList.remove(value + '-change');
+      button.classList.remove(`${value}-change`);
       text[0].innerText = 'No';
       text[0].style.backgroundColor = '#eeeeee';
     }
@@ -153,7 +153,7 @@
     }
     const width = document.querySelector('body');
     const buttonWidth = document.querySelector('#button').offsetWidth;
-    width.style.setProperty('--left', changeDropdownPos(pos, buttonWidth)+'px');
+    width.style.setProperty('--left', `${changeDropdownPos(pos, buttonWidth)}px`);
   });
 })();
 
@@ -241,10 +241,10 @@ function changeLevelAndWider (event) {
   if (event.path[0].name == 'level') {
     for (let index = 0; index < levelName.length; index++) {
       if (widerName[index].value == value) {
-        button.classList.add(value + '-padding');   
+        button.classList.add(`${value}-padding`);   
         text[0].innerText = value;
       } else {
-          button.classList.remove(widerName[index].value + '-padding');
+          button.classList.remove(`${widerName[index].value}-padding`);
         }
       }
   }
@@ -252,17 +252,17 @@ function changeLevelAndWider (event) {
   else if (event.path[0].name == 'wider') {
     for (let index = 0; index < widerName.length; index++) {
       if (widerName[index].value == value) {
-        button.classList.add(value + '-fontSize');
+        button.classList.add(`${value}-fontSize`);
         text[1].innerText = value;
       } else {
-          button.classList.remove(widerName[index].value + '-fontSize');
+          button.classList.remove(`${widerName[index].value}-fontSize`);
       }
     }
   }
   
   const width = document.querySelector('body');
   const buttonWidth = document.querySelector('#button').offsetWidth;
-  width.style.setProperty('--left', changeDropdownPos(pos, buttonWidth)+'px');
+  width.style.setProperty('--left', `${changeDropdownPos(pos, buttonWidth)}px`);
 };
 
 const dropdownName = document.getElementsByName('dropdown');
@@ -283,8 +283,8 @@ function changeDropdownWider (event) {
   for (let index = 0; index < dropdownName.length; index++) {
     if (dropdownName[index].value == value) {
       dropdownWidth = widthArray[index];
-      width.style.setProperty('--width', dropdownWidth+'px');
-      width.style.setProperty('--left', changeDropdownPos(pos, buttonWidth)+'px');
+      width.style.setProperty('--width', `${dropdownWidth}px`);
+      width.style.setProperty('--left', `${changeDropdownPos(pos, buttonWidth)}px`);
       text.innerText = value;
     } 
   }
@@ -302,7 +302,7 @@ function changePosition (event) {
     if (dropdownPos[index].value == value) {
       dropdownMenu.classList.add(value);
       pos = value;
-      width.style.setProperty('--left', changeDropdownPos(pos, buttonWidth)+'px');
+      width.style.setProperty('--left', `${changeDropdownPos(pos, buttonWidth)}px`);
       text.innerText = value;
     } else {
       dropdownMenu.classList.remove(dropdownPos[index].value);
@@ -312,13 +312,13 @@ function changePosition (event) {
 
 (function () {
   const value = document.querySelector('body');
-  const button = document.getElementById('button');
+  const buttonWidth = document.querySelector('#button').offsetWidth;
   window.onload = function(event) {
     dropdownWidth = widthArray[2];
-    value.style.setProperty('--left', changeDropdownPos(pos, dropdownWidth)+"px");
+    value.style.setProperty('--left', `${changeDropdownPos(pos, dropdownWidth)}px`);
   };
   
   window.onresize = function(event) {  
-    value.style.setProperty('--left', changeDropdownPos(pos, button.offsetWidth)+"px");
+    value.style.setProperty('--left', `${changeDropdownPos(pos, buttonWidth)}px`);
   };
 })();

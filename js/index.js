@@ -7,14 +7,14 @@
     for (let index = 0; index < select.length; index++) {
       if (select[index].value == value) {
         if (active.checked == true) {
-          button.classList.add(value+'-hover');  
+          button.classList.add(`${value}-change`);  
           button.classList.remove(select[index].value);
         } else {
           button.classList.add(value);
-          button.classList.remove(select[index].value+'-hover');
+          button.classList.remove(`${select[index].value}-hover`);
         }
       } else {
-        button.classList.remove(select[index].value+'-hover');
+        button.classList.remove(`${select[index].value}-hover`);
         button.classList.remove(select[index].value);
       }
     }
@@ -23,10 +23,10 @@
   const hoverChangeElement = (value) => {
     for (let index = 0; index < select.length; index++) {
       if (select[index].value == value) {
-        button.classList.add(value+'-hover');
+        button.classList.add(`${value}-change`);
         button.classList.remove(value);
       } else {
-        button.classList.remove(select[index].value+'-hover');
+        button.classList.remove(`${select[index].value}-hover`);
       }
     }
   };
@@ -36,28 +36,28 @@
       for (let index = 0; index < select.length; index++) {
         if (select[index].value == value) {
           if(active.checked) {
-            button.classList.add(value + '-hover-change');
-            button.classList.remove(value+'-hover');
+            button.classList.add(`${value}-hover-change`);
+            button.classList.remove(`${value}-change`);
           } else {
-            button.classList.add(value + '-change');
+            button.classList.add(`${value}-change`);
             button.classList.remove(value);
           }
           text[0].innerText = 'Yes';
           text[0].style.backgroundColor = '#dddddd';
 
         } else {
-          button.classList.remove(select[index].value+'-hover-change');
-          button.classList.remove(select[index].value+'-change');
+          button.classList.remove(`${select[index].value}-hover-change`);
+          button.classList.remove(`${select[index].value}-change`);
         } 
       }
   
     } else {
       if(active.checked) {
-        button.classList.add(value+'-hover');
-        button.classList.remove(value + '-hover-change');
+        button.classList.add(`${value}-hover`);
+        button.classList.remove(`${value}-hover-change`);
       } else {
         button.classList.add(value);
-        button.classList.remove(value + '-change');
+        button.classList.remove(`${value}-change`);
       }
       text[0].innerText = 'No';
       text[0].style.backgroundColor = '#eeeeee';
@@ -106,8 +106,8 @@
     } else {
   
       if(borderFontColor.checked == true) {
-        button.classList.remove(select.value+'-hover-change');
-        button.classList.add(select.value+'-change');
+        button.classList.remove(`${select.value}-hover-change`);
+        button.classList.add(`${select.value}-change`);
       } else if (button.classList.contains('disabled') == false){
         colorUpdate(select.value);
       }
@@ -195,10 +195,10 @@ function changeLevel (event) {
   
   for (let index = 0; index < levelName.length; index++) {
     if (widerName[index].value == value) {
-      button.classList.add(value + '-padding');
+      button.classList.add(`${value}-change`);
       text.innerText = value;
     } else {
-      button.classList.remove(widerName[index].value + '-padding');
+      button.classList.remove(`${widerName[index].value}-padding`);
     }
   }
 };
@@ -211,10 +211,10 @@ function changeWider (event) {
 
   for (let index = 0; index < widerName.length; index++) {
     if (widerName[index].value == value) {
-      button.classList.add(value + '-fontSize');
+      button.classList.add(`${value}-fontSize`);
       text.innerText = value;
     } else {
-      button.classList.remove(widerName[index].value + '-fontSize');
+      button.classList.remove(`${widerName[index].value}-fontSize`);
     }
   }
 };
