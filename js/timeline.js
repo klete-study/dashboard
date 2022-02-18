@@ -62,14 +62,21 @@
         return;
       }
     }
+    let code = 'yes'
 
     for (let index = 0; index < timelineArray.length; index++) {
       if (timelineArray[index][1] === color.value && colorArray.length != 0) {
-        break;
+        code = 'no';
+        continue;
+      } else {
+        if (code === 'no') {
+          break;
+        }
+        colorArray.push(hexToRgb(color.value));
       }
-      colorArray.push(hexToRgb(color.value));
     }
     
+    code == 'yes'
     count.innerText = timelineArray.length;
     timelineArray.sort();
     document.getElementById('timeline').reset();
