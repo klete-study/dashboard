@@ -11,7 +11,7 @@
 <body>
   <header>
     <div>
-      <h3>Dashboard - timeline</h3>
+      <h3>Dashboard - Timeline</h3>
     </div>
   </header>
   <section>
@@ -34,32 +34,46 @@
         
       </div>
     </div>
-
+  
     <div id="menu">
-      <div>
-        <p>Add Timeline</p>
+      <div id="selectContainer">
+        <form action="" id="timeline">
+          <p><label for="time" >Time (필수)</label></p>
+          <input type="time" id="time">
+          
+          <p><label for="color" >Color (필수)</label></p>
+          <input type="color" id="color">
+          
+          <p><label for="title" >Title (필수)</label></p>
+          <input type="text" id="title">
+          
+          <p><label for="description" >Description (선택)</label></p>
+          <input type="text" id="description">
+        </form>
       </div>
-      <form action="" id="timeline">
-        <label for="time" >Time (필수)</label><br>
-        <p><input type="time" id="time"></p>  
-        <label for="color" >Color (필수)</label><br>
-        <p><input type="color" id="color"></p>
-        <label for="title" >Title (필수)</label><br>
-        <p><input type="text" id="title"></p>
-        <label for="description" >Description (선택)</label><br>
-        <p><input type="text" id="description"></p>
-      </form>
-      <label for="save" >Save</label><br>
-      <p><input type="checkbox" id="save"></p>
-      <label for="reset" >Reset</label><br>
-      <p><input type="checkbox" id="reset"></p>
-      <br>
-      <p>save timeline : <span id="value">0</span></p>
-      <br>
-      <br>
-      <label for="show" >Show Timeline</label><br>
-      <p><input type="checkbox" id="show"></p>
+
+      <div>
+        <p><label for="useColor">Show Use Color</label></p>
+        <div id="colorBox" class="none"></div>
+        <input type="checkbox" id="useColor">
+
+        <p><label for="save">Save Timeline</label></p>
+        <input type="checkbox" id="save">
+        
+        <p><label for="reset">Reset Timeline</label></p>
+        <input type="checkbox" id="reset">
+        
+        <p>Timeline : <span id="count">0</span></p>
+      </div>
       
+      <div>
+        <p><label for="show" >Show Timeline</label></p>
+        <input type="checkbox" id="show">
+        
+        <p><label for="resetTimeline" >Delete All Timeline</label></p>
+        <input type="checkbox" id="resetTimeline">
+      </div>
+
     </div> 
   </section>
 </body>

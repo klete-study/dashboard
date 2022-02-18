@@ -1,75 +1,109 @@
 (function () {
-  const array = [];
+  const timelineArray = [];
   
-  const timelineArray = [
+  const timelinekeyArray = [
     'time',
     'color',
     'title',
     'description'
   ];
 
+  const colorArray = [
+
+  ];
+
   const save = document.getElementById('save');
-  const value = document.getElementById('value');
   const show = document.getElementById('show');
   const reset = document.getElementById('reset');
-  const deleteTimeline = document.getElementById('delete');
-  const time = document.getElementById('time');
-  const color = document.getElementById('color');
-  const title = document.getElementById('title');
-  const description = document.getElementById('description');
-  let code = 'normal'
-  
-  save.addEventListener('change', (event) => {
-    array.push([time.value,color.value,title.value,description.value]);
-    for (let arrayIndex = 0; arrayIndex < array.length; arrayIndex++) {
-      for (let index = 0; index < array[arrayIndex].length-1; index++) {
-        if (array[arrayIndex][index] === '' ) {
-          alert(`${timelineArray[index]}이(가) 없습니다.`)
-          code = 'error';
-        }
+  const resetTimeline = document.getElementById('resetTimeline');
+  const showColor = document.getElementById('useColor');
+
+  const hexToRgb = (hexType) => {
+    const hex = hexType.trim().replace( "#", "" );
+    const rgb = ( 3 === hex.length ) ? 
+    hex.match( /[a-f\d]/gi ) : hex.match( /[a-f\d]{2}/gi );
+
+    rgb.forEach(function (str, x, arr){
+        if ( str.length == 1 ) str = str + str;
+        arr[ x ] = parseInt( str, 16 );
+    }); 
+    return "rgb (" + rgb.join(", ") + ")";
+  }
+
+  showColor.addEventListener('change', (event) => {
+    const colorBox = document.getElementById('colorBox');
+    if (event.target.checked === true) {
+      colorBox.classList.remove('none');
+      for (let index = 0; index < colorArray.length; index++) {
+        const colorText = document.createElement('p');
+        colorText.innerText = `${index+1}. ${colorArray[index]}`;
+        colorBox.appendChild(colorText);
+      }
+    } else {
+      colorBox.classList.add('none');   
+      while (colorBox.childElementCount != 0) {
+        document.querySelector('#colorBox > p').remove();   
       }
     }
-    if (code === 'error') {
-      array.pop();
-      code = 'normal';
-      return;
+  });
+  
+  save.addEventListener('change', () => {
+    const count = document.getElementById('count');
+    const time = document.getElementById('time');
+    const color = document.getElementById('color');
+    const title = document.getElementById('title');
+    const description = document.getElementById('description');
+
+    timelineArray.push([time.value,color.value,title.value,description.value]);
+    for (let index = 0; index < timelineArray[timelineArray.length-1].length-1; index++) {
+      if (timelineArray[timelineArray.length-1][index] === '' ) {
+        alert(`${timelinekeyArray[index]}을(를) 입력하지 않았습니다`)
+        timelineArray.pop();
+        return;
+      }
+    }
+
+    for (let index = 0; index < timelineArray.length; index++) {
+      if (timelineArray[index][1] === color.value && colorArray.length != 0) {
+        break;
+      }
+      colorArray.push(hexToRgb(color.value));
     }
     
-    array.sort();
-    
-    value.innerText = array.length;
+    count.innerText = timelineArray.length;
+    timelineArray.sort();
     document.getElementById('timeline').reset();
   });
-
+  
   show.addEventListener('change', (event) => { 
-    if (show.checked === true) {
-      for (let arrayIndex = 0; arrayIndex < array.length; arrayIndex++) {
+    if (event.target.checked === true) {
+      for (let arrayIndex = 0; arrayIndex < timelineArray.length; arrayIndex++) {
         const container = document.createElement('div');
-        container.id = 'timelineContainer'
         const textContainer = document.createElement('div');
+        container.id = 'timelineContainer'
         textContainer.id = 'textContainer'
         
-        for (let index = 0; index < array[arrayIndex].length; index++) {
+        for (let index = 0; index < timelineArray[arrayIndex].length; index++) {
           const text = document.createElement('span');
-          text.id = timelineArray[index]+arrayIndex;
-          text.className = timelineArray[index];
+          text.id = timelinekeyArray[index]+arrayIndex;
+          text.className = timelinekeyArray[index];
           
           if(text.className === 'title' || text.className === 'description') {
             container.appendChild(textContainer);
             textContainer.appendChild(text);
             textContainer.appendChild(document.createElement('br'))
-            text.innerText = array[arrayIndex][index];
+            text.innerText = timelineArray[arrayIndex][index];
           } else {
 
             if (text.className === 'color') {
-              text.style.borderColor = array[arrayIndex][index];
+              text.style.borderColor = timelineArray[arrayIndex][index];
               text.innerText = '';
             } else {
 
-              if (array[arrayIndex][index] < "12") {
-                text.innerText = `${array[arrayIndex][index]} AM`;
+              if (timelineArray[arrayIndex][index] < "12") {
+                text.innerText = `${timelineArray[arrayIndex][index]} AM`;
               } else {
-                text.innerText = `${array[arrayIndex][index]} PM`;
+                text.innerText = `${timelineArray[arrayIndex][index]} PM`;
               }
             }       
             const createDiv = document.createElement('div');
@@ -86,8 +120,21 @@
     }
   });
 
-  reset.addEventListener('change', (event) => {
+  reset.addEventListener('change', () => {
     document.getElementById('timeline').reset();
+  });
+
+  resetTimeline.addEventListener('change', () => {
+    const count = document.getElementById('count');
+    while (document.querySelector('#timelineContainer') != null) {
+      document.querySelector('#timelineContainer').remove();
+    }
+    
+    while (timelineArray.length != 0) {
+      timelineArray.pop();
+      colorArray.pop();
+    }
+    count.innerText = timelineArray.length;
   });
 
 })();
