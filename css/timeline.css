@@ -48,7 +48,7 @@ input[type='color'] {
   margin-top: 5px;
 } 
 
-#timelineContainer > div > span {
+#timelineContainer > div > p {
   margin: 0;
 } 
 
@@ -85,6 +85,10 @@ input[type='color'] {
   border-radius: 10000px;
   padding: 0;
   border : 4px solid white;
+}
+
+.check {
+  font-weight: bold;
 }
 
 .time,

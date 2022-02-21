@@ -1,4 +1,5 @@
 (function () {
+
   const timelineArray = [];
   
   const timelinekeyArray = [
@@ -89,16 +90,15 @@
         const textContainer = document.createElement('div');
         container.id = 'timelineContainer'
         textContainer.id = 'textContainer'
-        
+
         for (let index = 0; index < timelineArray[arrayIndex].length; index++) {
-          const text = document.createElement('span');
+          const text = document.createElement('p');
           text.id = timelinekeyArray[index]+arrayIndex;
           text.className = timelinekeyArray[index];
-          
           if(text.className === 'title' || text.className === 'description') {
             container.appendChild(textContainer);
             textContainer.appendChild(text);
-            textContainer.appendChild(document.createElement('br'))
+
             text.innerText = timelineArray[arrayIndex][index];
           } else {
 
@@ -112,7 +112,7 @@
               } else {
                 text.innerText = `${timelineArray[arrayIndex][index]} PM`;
               }
-            }       
+            }
             const createDiv = document.createElement('div');
             createDiv.appendChild(text);
             container.appendChild(createDiv);
