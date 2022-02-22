@@ -41,6 +41,7 @@ input {
   overflow-x:unset;
   height: 850px;
   padding-left: 20px;
+  padding-right : 10px;
 }
 
 #container {
