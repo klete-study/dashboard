@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Button Dashboard</title>
+  <title>Modal Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
   <header>
     <div>
-      <h3>Dashboard - buttons</h3>
+      <h3>Dashboard - modal</h3>
     </div>
   </header>
   <section>
@@ -33,11 +34,31 @@
 
     <div id="container">
       <div id="buttonContainer" class="buttonDisplay">
-        <button id="button" class="button default border-white normal-padding normal-fontSize">
+        <button class="button default border-white normal-padding normal-fontSize">
           <p>
-            This is a button
+            Modal button
           </p>
         </button>
+      </div>
+      <div class="modal displayNone">
+      </div>
+      <div class="modalContainer displayNone">
+        <div>
+          <h3>Modal title</h3>
+        </div>
+        <div>
+          <p class="descrition">
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+          </p>
+        </div>
+        <div class="flex">
+          <div class="text closeText">
+            <p>Close</p>
+          </div>
+          <div class="text saveText">
+            <p>Save changes</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -73,57 +94,14 @@
       </form>
 
       <form action="">
-        <h3>Disabled State</h3>
-        <input type="checkbox" id="disabled">
-        <label for="disabled"><p class="tag">No</p></label>
-      </form>
-
-      <form action="">
-        <h3>Active State</h3>
-        <input type="checkbox" id="active">
-        <label for="active"><p class="tag">No</p></label>
-      </form>
-
-      <form action="">
         <h3>Block</h3>
         <input type="checkbox" id="block">
         <label for="block"><p class="tag">No</p></label>
       </form>
 
-      <form action="">
-        <h3>Level</h3>
-        <div class="selectContainer">
-          <input type="radio" id="levelLarge" name="level" value="large"
-          onclick="changeLevel(event)">
-          <label for="levelLarge">Large</label>
-          <input type="radio" id="levelNormal" name="level" value="normal"
-          onclick="changeLevel(event)">
-          <label for="levelNormal">Normal</label>
-          <input type="radio" id="levelSmall" name="level" value="small"
-          onclick="changeLevel(event)">
-          <label for="levelSmall">Small</label>
-        </div><br>
-        <span>Level : <p class="text">Normal</p></span>
-      </form>
+    </div>
 
-      <form action="">
-        <h3>Wider</h3>
-        <div class="selectContainer">
-          <input type="radio" id="widerLarge" name="wider" value="large"
-          onclick="changeWider(event)">
-          <label for="widerLarge">Large</label>
-          <input type="radio" id="widerNormal" name="wider" value="normal"
-          onclick="changeWider(event)" >
-          <label for="widerNormal">Normal</label>
-          <input type="radio" id="widerSmall" name="wider" value="small"
-          onclick="changeWider(event)">
-          <label for="widerSmall">Small</label>
-        </div><br>
-        <span>Wider : <p class="text">Normal</p></span>
-      </form>
-
-    </div> 
   </section>
 </body>
-<script src="js/index.js"></script>
+<script src="js/modal.js"></script>
 </html>
