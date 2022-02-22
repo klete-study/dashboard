@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Timeline Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/timeline.css">
 </head>
 
@@ -31,14 +30,14 @@
     </div>
 
     <div id="container">
-      <div id="result">
+      <div class="timeline">
         
       </div>
     </div>
   
     <div id="menu">
-      <div id="selectContainer">
-        <form action="" id="timeline">
+      <div class="selectContainer">
+        <form action="" name="timeline">
           <p><label for="time" >Time (필수)</label></p>
           <input type="time" id="time">
           
@@ -55,7 +54,7 @@
 
       <div>
         <p><label for="useColor">Show Use Color</label></p>
-        <div id="colorBox" class="none"></div>
+        <div class="colorBox none"></div>
         <input type="checkbox" id="useColor">
 
         <p><label for="save">Save Timeline</label></p>
@@ -64,7 +63,7 @@
         <p><label for="reset">Reset Timeline</label></p>
         <input type="checkbox" id="reset">
         
-        <p>Timeline : <span id="count">0</span></p>
+        <p>Timeline : <span class="count">0</span></p>
       </div>
       
       <div>

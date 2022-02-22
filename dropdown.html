@@ -30,8 +30,8 @@
     </div>
 
     <div id="container">
-      <div id="buttonContainer" class="buttonDisplay">
-        <button id="button" class="button default border-white normal-padding normal-fontSize">
+      <div class="buttonDisplay">
+        <button class="button default border-white normal-padding normal-fontSize">
           <p>
             This is a dashboard ▼
           </p>
@@ -43,7 +43,7 @@
               <p>Manage all of your options</p>
             </div>
           </div>
-          <div id="activityContainer">
+          <div class="activityContainer">
             <div class="dropdownTitle">
               <p>ACTIVITY</p>
             </div>
@@ -51,7 +51,7 @@
               <div class="dropdownText">
                 <p>Chat</p>
               </div>
-              <div id="chatCount">
+              <div class="text chatCount">
                 <p>8</p>
               </div>
             </div>
@@ -59,7 +59,7 @@
               <p>Recover Password</p>
             </div>
           </div>
-          <div id="accountContainer">
+          <div class="accountContainer">
             <div class="dropdownTitle">
               <p>MY ACCOUNT</p>
             </div>
@@ -67,7 +67,7 @@
               <div class="dropdownText">
                 <p>Settings</p>
               </div>
-              <div id="settingText">
+              <div class="text settingText">
                 <p>NEW</p>
               </div>
             </div>
@@ -75,7 +75,7 @@
               <div>
                 <p class="dropdownText">Messages</p>
               </div>
-              <div id="messageCount">
+              <div class="text messageCount">
                 <p>512</p>
               </div>
             </div>
@@ -83,8 +83,8 @@
               <p class="dropdownText">Logs</p>
             </div>
           </div>
-          <div id="cancelContainer">
-            <div id="cancelText">
+          <div class="cancelContainer">
+            <div class="text cancelText">
               <p>Cancel</p>
             </div>
           </div>
@@ -96,7 +96,7 @@
       <form action="">
         <div>
           <label for="colorSelectBox">Color</label><br>
-          <select id="colorSelectBox" name="colorSelectBox">
+          <select id="colorSelectBox">
             <option value="default">default</option>
             <option value="primary">Primary</option>
             <option value="secondary">Secondary</option>
@@ -113,25 +113,25 @@
 
       <form action="">
         <h3>Change Border And Font Color</h3>
-        <input type="checkbox" id="borderColor" name="borderColor">
+        <input type="checkbox" id="borderColor">
         <label for="borderColor"><p class="tag">No</p></label>
       </form>
 
       <form action="">
         <h3>Border Line</h3>
-        <input type="checkbox" id="borderLine" name="borderLine">
+        <input type="checkbox" id="borderLine" >
         <label for="borderLine"><p class="tag">No</p></label>
       </form>
 
       <form action="">
         <h3>Disabled State</h3>
-        <input type="checkbox" id="disabled" name="disabled">
+        <input type="checkbox" id="disabled">
         <label for="disabled"><p class="tag">No</p></label>
       </form>
 
       <form action="">
         <h3>Block</h3>
-        <input type="checkbox" id="block" name="block">
+        <input type="checkbox" id="block">
         <label for="block"><p class="tag">No</p></label>
       </form>
 
@@ -148,7 +148,7 @@
           onclick="changeLevelAndWider(event)">
           <label for="levelSmall">Small</label>
         </div><br>
-        <span>Level : <p class="text">normal</p></span>
+        <span>Level : <p class="text levelText">normal</p></span>
       </form>
 
       <form action="">
@@ -164,7 +164,7 @@
           onclick="changeLevelAndWider(event)">
           <label for="widerSmall">Small</label>
         </div><br>
-        <span>Wider : <p class="text">normal</p></span>
+        <span>Wider : <p class="text widerText">normal</p></span>
       </form>
 
       <form action="">
@@ -180,7 +180,7 @@
           onclick="changeDropdownWider(event)">
           <label for="dropdownSmall">Small</label>
         </div><br>
-        <span>dropdown : <p class="text">small(default)</p></span>
+        <span>dropdown : <p class="text dropdownWiderText">small(default)</p></span>
       </form>
 
       <form action="">
@@ -196,7 +196,7 @@
           onclick="changePosition(event)">
           <label for="posRight">Right</label>
         </div><br>
-        <span>position : <p class="text">center</p></span>
+        <span>position : <p class="text dropdownPosText">center</p></span>
       </form>
 
     </div>
