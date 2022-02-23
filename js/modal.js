@@ -17,9 +17,9 @@ const widthName = [
   'small'
 ]
 
-const inputText = (key, event) => {
+const changeText = (key, event) => {
   const text = document.getElementsByClassName('tag');
-  const value = textArray[key]; 
+  const value = textArray[key];
   if (event) {
     text[value].innerText = 'Yes';
     text[value].style.backgroundColor = '#dddddd';
@@ -29,7 +29,7 @@ const inputText = (key, event) => {
   }
 };
 
-const colorUpdate = (value) => {
+const changeColor = (value) => {
   for (let index = 0; index < select.length; index++) {
     if (select[index].value === value) {
       button.classList.add(value);
@@ -39,7 +39,7 @@ const colorUpdate = (value) => {
   }
 }
 
-const hoverChangeElement = (value) => {
+const changeHoverColor = (value) => {
   for (let index = 0; index < select.length; index++) {
     if (select[index].value === value) {
       if (borderFontColor.checked) {
@@ -53,7 +53,7 @@ const hoverChangeElement = (value) => {
   }
 };
 
-const hoverOutChangeElement = (value) => {
+const changeHoverOutColor = (value) => {
   for (let index = 0; index < select.length; index++) {
     if (select[index].value === value) {
       if (borderFontColor.checked) {
@@ -81,7 +81,7 @@ const changeBorderFontColor = (value, check) => {
     button.classList.add(value);
     button.classList.remove(`${value}-change`);
   }
-  inputText('borderFont', check);
+  changeText('borderFont', check);
 };
 
 const changeBorderLine = (check) => {
@@ -90,39 +90,43 @@ const changeBorderLine = (check) => {
   } else {
     button.classList.add('border-white');
   }
-  inputText('borderline', check);
+  changeText('borderline', check);
 };
 
 const modalStatus = (status) => {
   const modalContainer = document.querySelector('.modalContainer');
+  const body = document.querySelector('body');
+
   if (status === 'block') {
     modal.classList.add ('block');
     modal.classList.remove ('displayNone');
     modalContainer.classList.add ('block');
     modalContainer.classList.remove ('displayNone');
+    body.classList.add('hidden')
   } else if (status === 'none') {
     modal.classList.add('displayNone')
     modal.classList.remove('block')
     modalContainer.classList.add ('displayNone');
     modalContainer.classList.remove ('block');
+    body.classList.remove('hidden')
   }
 };
 
 select.addEventListener('change', (event) => {
   if (borderFontColor.checked === false) {
-    colorUpdate (event.target.value);
+    changeColor (event.target.value);
   } else {
     changeBorderFontColor(select.value, borderFontColor.checked);
   }
 });
 
 button.addEventListener('mouseover', () => {
-  hoverChangeElement(select.value);
+  changeHoverColor(select.value);
   button.classList.add('hover');
 });
 
 button.addEventListener('mouseout', () => {
-  hoverOutChangeElement(select.value);
+  changeHoverOutColor(select.value);
   button.classList.remove('hover');
 });
 
@@ -145,7 +149,7 @@ block.addEventListener('change', (event) => {
   } else {
     buttonContainer.classList.remove('block');
   }
-  inputText('block', event.target.checked);
+  changeText('block', event.target.checked);
 });
 
 const closeButton = document.querySelector('.closeText');
