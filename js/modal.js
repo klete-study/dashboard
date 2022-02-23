@@ -1,18 +1,38 @@
 const button = document.querySelector('.button');
 const borderFontColor = document.getElementById('borderColor'); 
 const select = document.getElementById('colorSelectBox');
-const block = document.getElementById('block'); 
-const text = document.getElementsByClassName('tag');
-const borderLine = document.getElementById('borderLine'); 
-const buttonContainer = document.getElementById('buttonContainer');
+const block = document.getElementById('block');
+const borderLine = document.getElementById('borderLine');
 const modal = document.querySelector('.modal');
-const modalContainer = document.querySelector('.modalContainer');
+
+const textArray = {
+  borderFont : 0,
+  borderline : 1,
+  block : 2
+};
+
+const widthName = [
+  'large',
+  'normal',
+  'small'
+]
+
+const inputText = (key, event) => {
+  const text = document.getElementsByClassName('tag');
+  const value = textArray[key]; 
+  if (event) {
+    text[value].innerText = 'Yes';
+    text[value].style.backgroundColor = '#dddddd';
+  } else {
+    text[value].innerText = 'No';
+    text[value].style.backgroundColor = '#eeeeee';
+  }
+};
 
 const colorUpdate = (value) => {
   for (let index = 0; index < select.length; index++) {
-    if (select[index].value == value) {
+    if (select[index].value === value) {
       button.classList.add(value);
-      button.classList.remove(`${value}-hover`);
     } else {
       button.classList.remove(select[index].value);
     }
@@ -21,20 +41,28 @@ const colorUpdate = (value) => {
 
 const hoverChangeElement = (value) => {
   for (let index = 0; index < select.length; index++) {
-    if (select[index].value == value) {
+    if (select[index].value === value) {
       if (borderFontColor.checked) {
-        if (value == 'default') {
-          break;
-        }
         button.classList.add(`${value}-hover-change`);
         button.classList.remove(`${value}-change`);
       } else {
-        button.classList.remove(`${value}-hover-change`);
         button.classList.add(`${value}-hover`);
       }
       button.classList.remove(value);
-    } else {
-      button.classList.remove(`${select[index].value}-hover`);
+    } 
+  }
+};
+
+const hoverOutChangeElement = (value) => {
+  for (let index = 0; index < select.length; index++) {
+    if (select[index].value === value) {
+      if (borderFontColor.checked) {
+        button.classList.remove(`${value}-hover-change`);
+        button.classList.add(`${value}-change`);
+      } else {
+        button.classList.add(value);
+        button.classList.remove(`${value}-hover`);
+      }
     }
   }
 };
@@ -42,37 +70,31 @@ const hoverChangeElement = (value) => {
 const changeBorderFontColor = (value, check) => {
   if (check) {  
     for (let index = 0; index < select.length; index++) {
-      if (select[index].value == value) {
+      if (select[index].value === value) {
         button.classList.add(`${value}-change`);
         button.classList.remove(value);
-        text[0].innerText = 'Yes';
-        text[0].style.backgroundColor = '#dddddd';
       } else {
         button.classList.remove(`${select[index].value}-change`);
       } 
     }
-
   } else {
     button.classList.add(value);
     button.classList.remove(`${value}-change`);
-    text[0].innerText = 'No';
-    text[0].style.backgroundColor = '#eeeeee';
   }
+  inputText('borderFont', check);
 };
 
 const changeBorderLine = (check) => {
   if (check) {
     button.classList.remove('border-white');
-    text[1].innerText = 'Yes';
-    text[1].style.backgroundColor = '#dddddd'
   } else {
     button.classList.add('border-white');
-    text[1].innerText = 'No';
-    text[1].style.backgroundColor = '#eeeeee';
   }
+  inputText('borderline', check);
 };
 
 const modalStatus = (status) => {
+  const modalContainer = document.querySelector('.modalContainer');
   if (status === 'block') {
     modal.classList.add ('block');
     modal.classList.remove ('displayNone');
@@ -81,13 +103,13 @@ const modalStatus = (status) => {
   } else if (status === 'none') {
     modal.classList.add('displayNone')
     modal.classList.remove('block')
-    modalContainer.classList.remove ('block');
     modalContainer.classList.add ('displayNone');
+    modalContainer.classList.remove ('block');
   }
-}
+};
 
 select.addEventListener('change', (event) => {
-  if (borderFontColor.checked == false) {
+  if (borderFontColor.checked === false) {
     colorUpdate (event.target.value);
   } else {
     changeBorderFontColor(select.value, borderFontColor.checked);
@@ -100,10 +122,13 @@ button.addEventListener('mouseover', () => {
 });
 
 button.addEventListener('mouseout', () => {
-  colorUpdate(select.value);
+  hoverOutChangeElement(select.value);
   button.classList.remove('hover');
 });
 
+button.addEventListener('click', () => {
+  modalStatus('block');
+});
 
 borderFontColor.addEventListener('change', (event) =>{
   changeBorderFontColor(select.value, event.target.checked);
@@ -114,27 +139,41 @@ borderLine.addEventListener('change', (event) => {
 });
 
 block.addEventListener('change', (event) => {
+  const buttonContainer = document.getElementById('buttonContainer');
   if (event.target.checked) {
     buttonContainer.classList.add('block');
-    text[2].innerText = 'Yes';
-    text[2].style.backgroundColor = '#dddddd';
   } else {
     buttonContainer.classList.remove('block');
-    text[2].innerText = 'No';
-    text[2].style.backgroundColor = '#eeeeee';
   }
+  inputText('block', event.target.checked);
 });
 
-button.addEventListener('click', () => {
-  modalStatus('block');
-});
+const closeButton = document.querySelector('.closeText');
+const exitButton = document.querySelector('.exitText');
 
 modal.addEventListener('click', () => {
   modalStatus('none');
 });
 
-const closeButton = document.querySelector('.closeText');
-
 closeButton.addEventListener ('click', () => {
   modalStatus('none');
 });
+
+exitButton.addEventListener ('click', () => {
+  modalStatus('none');
+});
+
+function changeWidth (event) {
+  const value = event.target.value;
+  const text = document.querySelector('.widthText');
+  const modalContainer = document.querySelector('.modalContainer');
+
+  for (let index = 0; index < widthName.length; index++) {
+    if (widthName[index] === value) {
+      modalContainer.classList.add(`${value}-width`);
+      text.innerText = value;
+    } else {
+      modalContainer.classList.remove(`${widthName[index]}-width`);
+    }
+  }
+};

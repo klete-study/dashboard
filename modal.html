@@ -34,7 +34,7 @@
 
     <div id="container">
       <div id="buttonContainer" class="buttonDisplay">
-        <button class="button default border-white normal-padding normal-fontSize">
+        <button class="button default border-white">
           <p>
             Modal button
           </p>
@@ -42,16 +42,19 @@
       </div>
       <div class="modal displayNone">
       </div>
-      <div class="modalContainer displayNone">
-        <div>
+      <div class="modalContainer displayNone normal-width">
+        <div class="flex between bg-ddd">
           <h3>Modal title</h3>
+          <div class="exitText">
+            <p>X</p>
+          </div>
         </div>
         <div>
           <p class="descrition">
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
           </p>
         </div>
-        <div class="flex">
+        <div class="flex flex-end bg-ddd">
           <div class="text closeText">
             <p>Close</p>
           </div>
@@ -99,6 +102,21 @@
         <label for="block"><p class="tag">No</p></label>
       </form>
 
+      <form action="">
+        <h3>Width</h3>
+        <div class="selectContainer">
+          <input type="radio" id="widthLarge" name="width" value="large"
+          onclick="changeWidth(event)">
+          <label for="widthLarge">Large</label>
+          <input type="radio" id="widthNormal" name="width" value="normal"
+          onclick="changeWidth(event)" >
+          <label for="widthNormal">Normal</label>
+          <input type="radio" id="widthSmall" name="width" value="small"
+          onclick="changeWidth(event)">
+          <label for="widthSmall">Small</label>
+        </div><br>
+        <span>Width : <p class="widthText">Normal</p></span>
+      </form>
     </div>
 
   </section>
