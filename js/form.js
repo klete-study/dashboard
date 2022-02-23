@@ -86,22 +86,42 @@ button.addEventListener('click', () => {
     }
   } 
 
-  // const radioClass = document.querySelector('.radio')
-  // console.log(radioClass.getElementsByTagName('p'))
-  // if (!radioCheck) {
-  //   const text = document.createElement('p');
-  //   text.className = 'textRed';
-  //   text.innerText = '1개를 선택하세요';
-  //   radioClass.appendChild(text);
-  // }
+  const radioClass = document.querySelector('.radio')
+  if (!radioCheck && radioClass.getElementsByTagName('p').length === 1) {
+    const text = document.createElement('p');
+    text.className = 'textRed';
+    text.innerText = '1개를 선택하세요';
+    radioClass.appendChild(text);
+  }
 
-  // const checkboxClass = document.querySelector('.checkbox')
-  // if (!checkboxCheck) {
-  //   const text = document.createElement('p');
-  //   text.className = 'textRed';
-  //   text.innerText = '1개 이상을 선택하세요'
-  //   checkboxClass.appendChild(text);
-  // }
+  const checkboxClass = document.querySelector('.checkbox')
+  if (!checkboxCheck && checkboxClass.getElementsByTagName('p').length === 1) {
+    const text = document.createElement('p');
+    text.className = 'textRed';
+    text.innerText = '1개 이상을 선택하세요'
+    checkboxClass.appendChild(text);
+  }
+
+  if (radioCheck || checkboxCheck) {
+    if (radioCheck) {
+      radioClass.lastChild.remove();
+    }
+    if (checkboxCheck) {
+      checkboxClass.lastChild.remove();
+    }
+  }
+
+  const colorBox = document.getElementById('colorBox');
+  const colorBoxClass = document.querySelector('.colorBox');
+  console.log()
+  if (colorBox.value === 'default' && colorBoxClass.getElementsByTagName('p').length === 1) {
+    const text = document.createElement('p');
+    text.className = 'textRed';
+    text.innerText = '값을 선택해주세요';
+    colorBoxClass.appendChild(text);
+  } else if (colorBox.value != 'default') {
+    colorBoxClass.lastChild.remove();
+  }
 
   document.querySelector('form[name="form"]').reset();
 });
