@@ -1,3 +1,14 @@
+#menu {
+  width: 30%; 
+  padding: 0px 20px;
+  overflow: auto;
+}
+
+.button {
+  padding: 10px;
+  font-size: 1rem;
+}
+
 .modal {
   position: absolute;
   background-color: black;
@@ -8,15 +19,23 @@
   top: 0;
 }
 
+.widthText {
+  display: inline;
+}
+
 .displayNone {
   display: none;
+}
+
+.hidden {
+  overflow: hidden;
 }
 
 .block {
   display: block;
 }
 
-.modalContainer{
+.modalContainer {
   position: absolute;
   width: 500px;
   background-color: white;
@@ -30,28 +49,44 @@
   border-radius: 10px;
 }
 
-.descrition{
+.descrition {
   font-size: 0.8rem;
+  padding: 10px 0px;
 }
 
 .flex {
   display: flex;
+}
+
+.flex-end {
   justify-content: flex-end;
+}
+
+.between {
+  justify-content: space-between;
 }
 
 .text {
   margin: 0 10px;
 }
 
-.closeText > p,
-.saveText > p {
+.text > p {
   padding: 7.5px 12.5px;
   color: white;
   border-radius: 5px;
 }
 
-.closeText:hover > p,
-.saveText:hover > p {
+.text:hover > p {
+  cursor: pointer;
+}
+
+.exitText{
+  color: #6c757d;
+  font-weight: bold;
+}
+
+.exitText:hover {
+  color: #3a3e3e;
   cursor: pointer;
 }
 
@@ -69,4 +104,16 @@
 
 .saveText:hover > p {
   background-color: #2651be;
+}
+
+.large-width {
+  width: 600px;
+}
+
+.normal-width {
+  width: 500px;
+}
+
+.small-width {
+  width: 400px;
 }
