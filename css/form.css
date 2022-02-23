@@ -14,7 +14,6 @@ input[type='text'] {
 
 input[type='text'],
 textarea {
-  border: 1px solid #ddd;
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -43,4 +42,18 @@ textarea {
 .button {
   padding: 10px;
   font-size: 1rem;
+}
+
+.bdDefault {
+  border: 1px solid #ddd;
+}
+
+.bdRed {
+  border: 1px solid red;
+}
+
+.textRed {
+  color: red;
+  font-size: 0.7rem;
+  margin: 10px 0px;
 }

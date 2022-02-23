@@ -34,22 +34,24 @@
         </li>
       </ul>
     </div>
-
+    <!-- email, password, description은 10자 이상, radio, checkbox, select는 value가 없을 경우 
+        border-color = red, 각 input 아래에 메시지-->
     <div id="container">
-      <form action="">
-        <div>
+      <form action="" name="form">
+        <div class="emailBox">
           <p><label for="email" >Email</label></p>
-          <input type="text" id="email">
+          <input type="text" id="email" class="bdDefault">
         </div>
 
-        <div>
+        <div class="passwordBox">
           <p><label for="password" >Password</label></p>
-          <input type="text" id="password">
+          <input type="text" id="password" class="bdDefault">
         </div>
 
-        <div>
+        <div class="colorBox">
           <p>Color</p>
           <select id="colorBox">
+            <option value="default">default</option>
             <option value="red">Red</option>
             <option value="orange">Orange</option>
             <option value="yellow">Yellow</option>
@@ -60,31 +62,31 @@
           </select>
         </div>
 
-        <div>
+        <div class="radio">
           <p>Radio</p>
-          <label><input type="radio" name="color" id="red" value="red">Red</label>
-          <label><input type="radio" name="color" id="orange" value="orange">Orange</label>
-          <label><input type="radio" name="color" id="yellow" value="yellow">Yellow</label>
-          <label><input type="radio" name="color" id="green" value="green">Green</label>
-          <label><input type="radio" name="color" id="blue" value="blue">Blue</label>
-          <label><input type="radio" name="color" id="indigo" value="indigo">Indigo</label>
-          <label><input type="radio" name="color" id="purple" value="purple">Purple</label>
+          <label><input type="radio" name="radio" id="red" value="red">Red</label>
+          <label><input type="radio" name="radio" id="orange" value="orange">Orange</label>
+          <label><input type="radio" name="radio" id="yellow" value="yellow">Yellow</label>
+          <label><input type="radio" name="radio" id="green" value="green">Green</label>
+          <label><input type="radio" name="radio" id="blue" value="blue">Blue</label>
+          <label><input type="radio" name="radio" id="indigo" value="indigo">Indigo</label>
+          <label><input type="radio" name="radio" id="purple" value="purple">Purple</label>
         </div>
 
-        <div>
+        <div class="checkbox">
           <p>Checkbox</p>
-          <label><input type="checkbox" name="color" id="red" value="red">Red</label>
-          <label><input type="checkbox" name="color" id="orange" value="orange">Orange</label>
-          <label><input type="checkbox" name="color" id="yellow" value="yellow">Yellow</label>
-          <label><input type="checkbox" name="color" id="green" value="green">Green</label>
-          <label><input type="checkbox" name="color" id="blue" value="blue">Blue</label>
-          <label><input type="checkbox" name="color" id="indigo" value="indigo">Indigo</label>
-          <label><input type="checkbox" name="color" id="purple" value="purple">Purple</label>
+          <label><input type="checkbox" name="checkbox" id="red" value="red">Red</label>
+          <label><input type="checkbox" name="checkbox" id="orange" value="orange">Orange</label>
+          <label><input type="checkbox" name="checkbox" id="yellow" value="yellow">Yellow</label>
+          <label><input type="checkbox" name="checkbox" id="green" value="green">Green</label>
+          <label><input type="checkbox" name="checkbox" id="blue" value="blue">Blue</label>
+          <label><input type="checkbox" name="checkbox" id="indigo" value="indigo">Indigo</label>
+          <label><input type="checkbox" name="checkbox" id="purple" value="purple">Purple</label>
         </div>
         
-        <div>
-          <p><label for="description" >Description</label></p>
-          <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <div class="descriptionBox">
+          <p><label for="description">Description</label></p>
+          <textarea name="description" id="description" cols="30" rows="10" class="bdDefault"></textarea>
         </div>
       </form>
       <div class="">
