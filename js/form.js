@@ -1,127 +1,129 @@
 const button = document.querySelector('.button');
-const select = document.getElementById('colorSelectBox');
-
-const changeColor = (value) => {
-  for (let index = 0; index < select.length; index++) {
-    if (select[index].value === value) {
-      button.classList.add(value);
-    } else {
-      button.classList.remove(select[index].value);
-    }
-  }
-}
 
 const changeHoverColor = (value) => {
-  for (let index = 0; index < select.length; index++) {
-    if (select[index].value === value) {
-      button.classList.add(`${value}-hover`);
-      button.classList.remove(value);
-    } 
-  }
+  button.classList.replace(value,`${value}-hover`);
 };
 
 const changeHoverOutColor = (value) => {
-  for (let index = 0; index < select.length; index++) {
-    if (select[index].value === value) {
-      button.classList.add(value);
-      button.classList.remove(`${value}-hover`);
-    }
-  }
+  button.classList.replace(`${value}-hover`, value);
 };
 
-select.addEventListener('change', (event) => {
-  changeColor (event.target.value);
-});
-
 button.addEventListener('mouseover', () => {
-  changeHoverColor(select.value);
+  changeHoverColor('primary');
   button.classList.add('hover');
 });
 
 button.addEventListener('mouseout', () => {
-  changeHoverOutColor(select.value);
+  changeHoverOutColor('primary');
   button.classList.remove('hover');
 });
 
-const idArray = [
-  email,
-  password,
-  description
-];
-
 button.addEventListener('click', () => {
-  for (let index = 0; index < idArray.length; index++) {
-    const key = idArray[index];
-    if (key.value.length <= 10) {
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  const description = document.getElementById('description');
+  const colorBox = document.getElementById('color');
+
+  const idArray = [
+    email,
+    password,
+    description,
+    colorBox
+  ];
+  
+  const makeElementInputId = (key) => {
+    const text = document.createElement('p');
+    text.className = 'textRed';
+    const parent = key.parentNode;
+
+    if (parent.getElementsByTagName('p').length === 1) {
+      if (key != colorBox) {
+        text.innerText = '10글자 이상 입력하세요'
+        key.classList.add('bdRed');
+      } else {
+        if (key.value === 'default') {
+          text.innerText = '값을 선택하세요';
+        }
+      }
+      key.parentNode.appendChild(text);
+    } else {
+      if (key === colorBox && key.value !='default'){
+        key.parentNode.lastElementChild.remove();
+      }
+    }
+  }
+
+  const addBdRed = (key) => {
+    
+    if (key.value.length <= 10 && key != colorBox) {
       if (!key.classList.contains('bdRed')) {
         key.classList.add('bdRed');
-        const text = document.createElement('p');
-        text.className = 'textRed';
-        text.innerText = '10글자 이상 입력하세요'
-        key.parentNode.appendChild(text);
       }
+    } else if (key.value === 'default' && key === colorBox) {
+      key.classList.add('bdRed');
     } else {
       if (key.classList.contains('bdRed')) {
         key.classList.remove('bdRed');
+      } 
+      if (key != colorBox) {
+        key.parentNode.lastElementChild.remove();
       }
-      key.parentNode.lastElementChild.remove();
     }
   }
 
   const radio = document.getElementsByName('radio');
-  let radioCheck = false;
-  for (let index = 0; index < radio.length; index++) {
-    if (radio[index].checked) {
-      radioCheck = true;
-      break;
-    }
-  }
+  const checkbox = document.getElementsByName('check');
 
-  const checkbox = document.getElementsByName('checkbox');
-  let checkboxCheck = false;
-  for (let index = 0; index < checkbox.length; index++) {
-    if (checkbox[index].checked) {
-      checkboxCheck = true;
-      break;
-    }
-  } 
+  const radioContainer = document.querySelector('.radioBox');
+  const checkboxContainer = document.querySelector('.checkBox');
 
-  const radioClass = document.querySelector('.radio')
-  if (!radioCheck && radioClass.getElementsByTagName('p').length === 1) {
+  const nameArray = [
+    radio,
+    checkbox
+  ]
+
+  const selectorArray = [
+    radioContainer,
+    checkboxContainer
+  ]
+  
+  const makeElementInputName = (key) => {
     const text = document.createElement('p');
     text.className = 'textRed';
-    text.innerText = '1개를 선택하세요';
-    radioClass.appendChild(text);
-  }
 
-  const checkboxClass = document.querySelector('.checkbox')
-  if (!checkboxCheck && checkboxClass.getElementsByTagName('p').length === 1) {
-    const text = document.createElement('p');
-    text.className = 'textRed';
-    text.innerText = '1개 이상을 선택하세요'
-    checkboxClass.appendChild(text);
-  }
-
-  if (radioCheck || checkboxCheck) {
-    if (radioCheck) {
-      radioClass.lastChild.remove();
-    }
-    if (checkboxCheck) {
-      checkboxClass.lastChild.remove();
+    if (key.getElementsByTagName('p').length === 1) {
+      if (key === radioContainer) {
+        text.innerText = '1개를 선택하세요';
+      } else {
+        text.innerText = '1개 이상을 선택하세요';
+      }
+      key.appendChild(text)
     }
   }
-
-  const colorBox = document.getElementById('colorBox');
-  const colorBoxClass = document.querySelector('.colorBox');
-  console.log()
-  if (colorBox.value === 'default' && colorBoxClass.getElementsByTagName('p').length === 1) {
-    const text = document.createElement('p');
-    text.className = 'textRed';
-    text.innerText = '값을 선택해주세요';
-    colorBoxClass.appendChild(text);
-  } else if (colorBox.value != 'default') {
-    colorBoxClass.lastChild.remove();
+  
+  const checkValue = (key) => {
+    let check;
+    for (let index = 0; index < key.length; index++) {
+      if (key[index].checked) {
+        check = true;
+        break;
+      }
+      check = false;
+    } 
+    return check;
   }
 
+  for (let index = 0; index < idArray.length; index++) {
+    makeElementInputId(idArray[index]);
+    addBdRed(idArray[index]);
+  }
+  
+  for (let index = 0; index < selectorArray.length; index++) {
+    makeElementInputName(selectorArray[index]);
+    if (checkValue(nameArray[index])) {
+      selectorArray[index].lastChild.remove();
+    }
+  }
+  
   document.querySelector('form[name="form"]').reset();
 });
