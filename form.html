@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h3>Dashboard - form</h3>
+    </div>
+  </header>
+  <section>
+    <div id="nav">
+      <ul>
+        <li>
+          <p><a href="button.html">buttons</a></p>
+        </li>
+        <li>
+          <p><a href="dropdown.html">dropdowns</a></p>
+        </li>
+        <li>
+          <p><a href="index.html">timeline</a></p>
+        </li>
+        <li>
+          <p><a href="modal.html">modal</a></p>
+        </li>
+        <li>
+          <p><a href="form.html">form</a></p>
+        </li>
+      </ul>
+    </div>
+
+    <div id="container">
+      <form action="" name="form">
+        <div class="emailBox">
+          <p><label for="email" >Email</label></p>
+          <input type="text" id="email" class="bdDefault">
+        </div>
+
+        <div class="password">
+          <p><label for="password" >Password</label></p>
+          <input type="text" id="password" class="bdDefault">
+        </div>
+
+        <div class="colorBox">
+          <p>Color - Option</p>
+          <select id="color" class="bdDefault">
+            <option value="default">default</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="indigo">Indigo</option>
+            <option value="purple">Purple</option>
+          </select>
+        </div>
+
+        <div class="radioBox">
+          <p>Color - Radio</p>
+          <label><input type="radio" name="radio" id="red" value="red">Red</label>
+          <label><input type="radio" name="radio" id="orange" value="orange">Orange</label>
+          <label><input type="radio" name="radio" id="yellow" value="yellow">Yellow</label>
+          <label><input type="radio" name="radio" id="green" value="green">Green</label>
+          <label><input type="radio" name="radio" id="blue" value="blue">Blue</label>
+          <label><input type="radio" name="radio" id="indigo" value="indigo">Indigo</label>
+          <label><input type="radio" name="radio" id="purple" value="purple">Purple</label>
+        </div>
+
+        <div class="checkBox">
+          <p>Color - Checkbox</p>
+          <label><input type="checkbox" name="check" id="red" value="red">Red</label>
+          <label><input type="checkbox" name="check" id="orange" value="orange">Orange</label>
+          <label><input type="checkbox" name="check" id="yellow" value="yellow">Yellow</label>
+          <label><input type="checkbox" name="check" id="green" value="green">Green</label>
+          <label><input type="checkbox" name="check" id="blue" value="blue">Blue</label>
+          <label><input type="checkbox" name="check" id="indigo" value="indigo">Indigo</label>
+          <label><input type="checkbox" name="check" id="purple" value="purple">Purple</label>
+        </div>
+        
+        <div class="description">
+          <p><label for="description">Description</label></p>
+          <textarea name="description" id="description" cols="30" rows="10" class="bdDefault"></textarea>
+        </div>
+      </form>
+      <div class="">
+        <button class="button primary border-white">
+          <p>
+            submit
+          </p>
+        </button>
+      </div>
+    </div>
+    
+  </section>
+  <script src="js/form.js"></script>
+</body>
+</html>

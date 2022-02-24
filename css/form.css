@@ -1,0 +1,71 @@
+input {
+  display: inline-block;
+}
+
+select {
+  width: 100%;
+  border-radius: 10px;
+}
+
+input[type='text'] {
+  height: 30px;
+}
+
+input[type='text'],
+textarea {
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: calc( 100% - 20px );
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  margin: 0px 10px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+#nav {
+  margin-right: 30px;
+}
+
+#container {
+  margin-left: 30px;
+  text-align: start;
+}
+
+#container div {
+  margin: 30px 0px;
+}
+
+#container div > p:nth-child(1) {
+  padding-left: 10px;
+}
+
+.button {
+  font-size: 1rem;
+}
+
+.bdDefault {
+  border: 1px solid #ddd;
+}
+
+.bdRed {
+  border: 1px solid red;
+}
+
+.textRed {
+  color: red;
+  font-size: 0.7rem;
+  margin: 10px 0px;
+}
+
+.inline {
+  display: inline;
+}
+
+.displayNone {
+  display: none;
+}
